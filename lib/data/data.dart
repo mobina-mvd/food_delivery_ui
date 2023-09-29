@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-=======
-// Food
->>>>>>> b95f3ff22228fdb4f3e0597ba97d3aa4a60810e6
 import 'package:food_delivery_ui/model/food.dart';
 import 'package:food_delivery_ui/model/order.dart';
 import 'package:food_delivery_ui/model/restaurant.dart';
 import 'package:food_delivery_ui/model/user.dart';
 
-<<<<<<< HEAD
 // Food
-=======
->>>>>>> b95f3ff22228fdb4f3e0597ba97d3aa4a60810e6
 final _burrito =
     Food(imageUrl: 'assets/images/burrito.jpg', name: 'Burrito', price: 8.99);
 final _steak =
