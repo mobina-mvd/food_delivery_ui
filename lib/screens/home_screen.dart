@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/data/data.dart';
-import 'package:food_delivery_ui/model/restaurant.dart';
 import 'package:food_delivery_ui/screens/restaurant_screen.dart';
 import 'package:food_delivery_ui/screens/widgets/rating_stars.dart';
 import 'package:food_delivery_ui/screens/widgets/recent_order.dart';
@@ -94,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _builtRestaurant() {
     List<Widget> restaurantList = [];
-    restaurants.forEach((Restaurant restaurant) {
+    for (var restaurant in restaurants) {
       restaurantList.add(
         GestureDetector(
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
@@ -114,11 +113,15 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(
-                    restaurant.imageUrl,
-                    width: 150,
-                    height: 150,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    transitionOnUserGestures: true,
+                    tag: restaurant.imageUrl,
+                    child: Image.asset(
+                      restaurant.imageUrl,
+                      width: 150,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -165,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
-    });
+    }
     return Column(
       children: restaurantList,
     );
